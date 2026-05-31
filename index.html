@@ -691,8 +691,8 @@ input[title]:hover::after,select[title]:hover::after{
   <!-- ══ CONFIGURAÇÃO SUPABASE + MP (preencha suas credenciais) ══ -->
   <script>
     // ─── PREENCHA AQUI APÓS CRIAR SEU PROJETO NO SUPABASE ───────────────────
-    const SUPABASE_URL      = 'https://jqaktgtrfpwxkzgszslz.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_dizPnQZCZ0D1mE3Ln7shTA_W_sCB6wB';
+    const SUPABASE_URL      = 'https://SEU_PROJETO.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
     // ─── PREENCHA APÓS CRIAR OS PLANOS NO MERCADO PAGO ──────────────────────
     const MP_PUBLIC_KEY     = 'APP_USR-00000000-0000-0000-0000-000000000000';
     // ────────────────────────────────────────────────────────────────────────
@@ -2780,14 +2780,9 @@ function showToast(msg){const t=document.getElementById('toast');document.getEle
 // ── ANIMATIONS ──
 const shakeStyle=document.createElement('style');shakeStyle.textContent='@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}';document.head.appendChild(shakeStyle);
 // ── INIT ──
-applyLabels();
-renderChips();
-updateLoginStats();
-document.getElementById('cGE').style.display='block';
-document.getElementById('cDE').style.display='block';
-document.getElementById('cHE').style.display='block';
-setInterval(()=>{if(CU)saveCurrentData();},30000);
-showScreen('scLogin');
+// Auto-save a cada 30 segundos
+setInterval(async () => { if (CU) await saveCurrentData(); }, 30000);
+// initApp() é chamado no DOMContentLoaded no final do script
 
 
 // ── ITEM ANNOTATIONS & MATERIALS ──
